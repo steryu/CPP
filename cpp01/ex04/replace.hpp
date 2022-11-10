@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   replace.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 14:58:45 by svan-ass          #+#    #+#             */
-/*   Updated: 2022/11/10 14:42:56 by svan-ass         ###   ########.fr       */
+/*   Created: 2022/11/10 12:27:07 by svan-ass          #+#    #+#             */
+/*   Updated: 2022/11/10 14:43:32 by svan-ass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "replace.hpp"
+#ifndef MAIN_HPP
+#define MAIN_HPP
 
-int	exitMessage(std::string message){
-	std::cout << message << std::endl;
-	exit(EXIT_SUCCESS);
-}
+#include <iostream>
+#include <fstream>
+#include <string>
 
-int main(int argc, char **argv){
-	std::fstream file;
+void	readString(std::fstream &file, std::string s1, std::string s2);
 
-	if (argc != 4)
-		exitMessage("only three arguments please: file, s1 and s2");
-	file.open(argv[1], std::ios::in);
-	if (!file)
-		exitMessage("couldn't open file");
-	readString(file, argv[2], argv[3]);
-	file.close();
-	return (0);
-}
+#endif

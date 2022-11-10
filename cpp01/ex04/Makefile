@@ -6,17 +6,17 @@
 #    By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 11:50:52 by svan-ass          #+#    #+#              #
-#    Updated: 2022/11/09 15:00:23 by svan-ass         ###   ########.fr        #
+#    Updated: 2022/11/10 14:43:17 by svan-ass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	sed
+NAME =	replace
 
-CC =	c++ -Wall -Wextra -Werror
+CC =	c++ -Wall -Wextra -Werror -std=c++98
 
 OBJ_DIR =	objs
 
-SRCS =	main.cpp
+SRCS =	main.cpp replace.cpp
 
 OBJS =	$(SRCS:.cpp=.o)
 
