@@ -6,13 +6,13 @@
 #    By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 11:48:55 by svan-ass          #+#    #+#              #
-#    Updated: 2022/11/03 11:43:20 by svan-ass         ###   ########.fr        #
+#    Updated: 2022/11/16 15:23:43 by svan-ass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	zombie
 
-CC =	c++ -Wall -Wextra -Werror
+CC =	c++ -Wall -Wextra -Werror -std=c++98
 
 OBJ_DIR =	objs
 

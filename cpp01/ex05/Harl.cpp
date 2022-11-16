@@ -6,7 +6,7 @@
 /*   By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:39:45 by svan-ass          #+#    #+#             */
-/*   Updated: 2022/11/15 16:24:56 by svan-ass         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:10:32 by svan-ass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	Harl::warning(void){
 }
 
 void	Harl::error(void){
-	std::cout << "Not cool! I want to speak to the manager now." << std::endl;
+	std::cout << "Not cool! I want to speak to the manager, now!" << std::endl;
 }
 
 void	Harl::complain(std::string level){

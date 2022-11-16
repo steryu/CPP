@@ -6,13 +6,13 @@
 #    By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/04 14:08:04 by svan-ass          #+#    #+#              #
-#    Updated: 2022/11/07 14:42:03 by svan-ass         ###   ########.fr        #
+#    Updated: 2022/11/16 15:24:01 by svan-ass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	brain
 
-CC =	c++ -Wall -Wextra -Werror
+CC =	c++ -Wall -Wextra -Werror -std=c++98
 
 OBJ_DIR =	objs
 

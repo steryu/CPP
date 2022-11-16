@@ -6,13 +6,13 @@
 #    By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/03 11:43:22 by svan-ass          #+#    #+#              #
-#    Updated: 2022/11/03 12:00:54 by svan-ass         ###   ########.fr        #
+#    Updated: 2022/11/16 15:23:55 by svan-ass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	zombieHorde
 
-CC =	c++ -Wall -Wextra -Werror
+CC =	c++ -Wall -Wextra -Werror -std=c++98
 
 OBJ_DIR =	objs
 

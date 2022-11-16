@@ -6,13 +6,13 @@
 #    By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 11:50:52 by svan-ass          #+#    #+#              #
-#    Updated: 2022/11/09 11:51:51 by svan-ass         ###   ########.fr        #
+#    Updated: 2022/11/16 15:24:05 by svan-ass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	attack
 
-CC =	c++ -Wall -Wextra -Werror
+CC =	c++ -Wall -Wextra -Werror -std=c++98
 
 OBJ_DIR =	objs
 

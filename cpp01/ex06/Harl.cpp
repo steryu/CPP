@@ -6,7 +6,7 @@
 /*   By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:39:45 by svan-ass          #+#    #+#             */
-/*   Updated: 2022/11/15 16:43:52 by svan-ass         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:23:07 by svan-ass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,30 +32,29 @@ void	Harl::error(void){
 	std::cout << "Not cool! I want to speak to the manager, now!\n" << std::endl;
 }
 
+int	check_level(std::string level){
+	static std::string str[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	for (int i = 0; i < 4; i++){
+		if (str[i] == level)
+			return (i);
+	}
+	return (4);
+}
+
 void	Harl::complain(std::string level){
-	int i = 0;
-	char chr = level[0];
-	switch (chr){
-		case 'D':
-			i = 0;
-			break ;
-		case 'I':
-			i = 1;
-			break ;
-		case 'W':
-			i = 2;
-			break ;
-		case 'E':
-			i = 3;
+	int n = check_level(level);
+	switch (n){
+		case 0:
+			debug();
+		case 1:
+			info();
+		case 2:
+			warning();
+		case 3:
+			error();
 			break ;
 		default:
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 			exit(EXIT_SUCCESS);
-	}
-	static std::string str[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void (Harl::*fn[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	while (i < 4){
-			(this->*fn[i])();
-			i++;
 	}
 }
