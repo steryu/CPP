@@ -5,33 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 15:54:51 by svan-ass          #+#    #+#             */
-/*   Updated: 2022/11/17 12:46:59 by svan-ass         ###   ########.fr       */
+/*   Created: 2022/11/21 11:40:38 by svan-ass          #+#    #+#             */
+/*   Updated: 2022/11/29 13:00:51 by svan-ass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include "Fixed.hpp"
 
 int	main(void)
 {
-	{
-	Weapon bite = Weapon("sharp kitty bite");
-	HumanA shiro("Shiro", bite);
-	shiro.attack();
-	bite.setType("some other type of kitty attack");
-	shiro.attack();
-	}
-	std::cout << std::endl;
-	{
-	Weapon bite = Weapon("sharp kitty bite");
-	HumanB toru("Toru");
-	toru.setWeapon(bite);
-	toru.attack();
-	bite.setType("some other type of kitty attack");
-	toru.attack();
-	}
-	return(0);
-}
+	Fixed		a;
+	Fixed const	b( 10 );
+	Fixed const	c( 42.42f );
+	Fixed const d( b );
 
+	a = Fixed( 1234.4321f );
+
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+	std::cout << "c is " << c << std::endl;
+	std::cout << "d is " << d << std::endl;
+
+	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+
+	return (0);
+}
