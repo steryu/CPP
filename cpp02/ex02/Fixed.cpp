@@ -6,7 +6,7 @@
 /*   By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 12:40:09 by svan-ass          #+#    #+#             */
-/*   Updated: 2022/12/02 11:12:28 by svan-ass         ###   ########.fr       */
+/*   Updated: 2022/12/02 12:42:40 by svan-ass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ Fixed Fixed::operator-(Fixed other) const{
 
 Fixed Fixed::operator*(Fixed other) const{
 
-	return (toFloat() * other.toFloat());
+	return (FixedPoint * other.FixedPoint);
 }
 
 Fixed Fixed::operator/(Fixed other) const{

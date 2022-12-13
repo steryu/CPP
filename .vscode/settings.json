@@ -64,6 +64,7 @@
 		"deque": "cpp",
 		"fstream": "cpp",
 		"stack": "cpp",
-		"blubble.h": "c"
+		"blubble.h": "c",
+		"__functional_03": "cpp"
 	}
 }
