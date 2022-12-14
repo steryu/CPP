@@ -6,11 +6,18 @@
 /*   By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:18:45 by svan-ass          #+#    #+#             */
-/*   Updated: 2022/12/13 14:27:16 by svan-ass         ###   ########.fr       */
+/*   Updated: 2022/12/13 14:30:21 by svan-ass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+
+ScavTrap::ScavTrap(){
+	std::cout << "Default ScavTrap constructor called" << std::endl;
+	HitPoints = 100;
+	EnergyPoints = 50;
+	AttackDamage = 20;
+}
 
 ScavTrap::ScavTrap(std::string newName){
 	Name = newName;
@@ -40,17 +47,17 @@ ScavTrap& ScavTrap::operator= (const ScavTrap &other){
 
 void ScavTrap::attack(const std::string& target){
 	if (HitPoints <= 0){
-		std::cout << "ScavTrap " << Name << " can't attack because it's dead :(" << std::endl;
+		std::cout << Name << " can't attack because it's dead :(" << std::endl;
 		return ;
 	}
 	if (EnergyPoints != 0){
-		std::cout << "ScavTrap " << Name << " attacks " << target << " causing " << AttackDamage << " points of damage!" << std::endl;
+		std::cout << Name << " attacks " << target << " causing " << AttackDamage << " points of damage!!" << std::endl;
 		EnergyPoints -= 1;
 	}
 	else
-		std::cout << "ScavTrap " << Name << " does not enough have energy points to attack" << std::endl;
+		std::cout << Name << " does not enough have energy points to attack" << std::endl;
 }
 
 void	ScavTrap::quardGate(){
-	std::cout << "ScavTrap " << Name << " is now in Gate keeper mode, attacks will be 50% less effective" << std::endl;
+	std::cout << Name << " is now in Gate keeper mode, attacks will be 50% less effective" << std::endl;
 }

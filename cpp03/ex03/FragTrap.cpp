@@ -6,11 +6,18 @@
 /*   By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:25:21 by svan-ass          #+#    #+#             */
-/*   Updated: 2022/12/13 14:28:44 by svan-ass         ###   ########.fr       */
+/*   Updated: 2022/12/14 15:01:12 by svan-ass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+
+FragTrap::FragTrap(){
+	std::cout << "Default FragTrap constructor called" << std::endl;
+	HitPoints = 100;
+	EnergyPoints = 50;
+	AttackDamage = 20;
+}
 
 FragTrap::FragTrap(std::string newName) : ClapTrap(newName){
 	HitPoints = 100;
@@ -47,9 +54,9 @@ void	FragTrap::attack(const std::string& target){
 		return ;
 	}
 	if (EnergyPoints != 0){
-		std::cout << "FragTrap " << Name << " attacks " << target << " causing " << AttackDamage << " points of damage!" << std::endl;
+		std::cout << Name << " attacks " << target << " causing " << AttackDamage << " points of damage!" << std::endl;
 		EnergyPoints -= 1;
 	}
 	else
-		std::cout << "FragTrap " << Name << " does not enough have energy points to attack" << std::endl;
+		std::cout << Name << " does not enough have energy points to attack" << std::endl;
 }

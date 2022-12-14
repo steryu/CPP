@@ -6,7 +6,7 @@
 /*   By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:33:05 by svan-ass          #+#    #+#             */
-/*   Updated: 2022/12/12 16:02:59 by svan-ass         ###   ########.fr       */
+/*   Updated: 2022/12/13 14:25:55 by svan-ass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,10 @@ ClapTrap& ClapTrap::operator= (const ClapTrap &other){
 }
 
 void ClapTrap::attack(const std::string& target){
+	if (HitPoints <= 0){
+		std::cout << "ClapTrap " << Name << " can't attack because it's dead :(" << std::endl;
+		return ;
+	}
 	if (EnergyPoints != 0){
 		std::cout << "ClapTrap " << Name << " attacks " << target << " causing " << AttackDamage << " points of damage!" << std::endl;
 		EnergyPoints -= 1;
@@ -61,21 +65,29 @@ void ClapTrap::attack(const std::string& target){
 }
 
 void	ClapTrap::takeDamage(unsigned int amount){
-	std::cout << "ClapTrap " << Name << " took " << amount << " points of damage " << std::endl;
+	if (HitPoints <= 0){
+		std::cout << Name << " died" << std::endl;
+		return ;
+	}
+	std::cout << Name << " took " << amount << " points of damage " << std::endl;
 	HitPoints -= amount;
-	std::cout << "ClapTrap " << Name << " has " << HitPoints << " Hitpoints" << std::endl;
+	std::cout << Name << " has " << HitPoints << " Hitpoints" << std::endl;
 	if (HitPoints <= 0)
-		std::cout << "ClapTrap " << Name << " died" << std::endl;
+		std::cout << Name << " died" << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount){
+	if (HitPoints <= 0){
+		std::cout << Name << " can't repair itself because it's dead :(" << std::endl;
+		return ;
+	}
 	if (EnergyPoints != 0){
-		std::cout << "ClapTrap " << Name << " repeared itself by " << amount << " hitpoints " << std::endl;
+		std::cout << Name << " repeared itself by " << amount << " hitpoints " << std::endl;
 		HitPoints += amount;
-		std::cout << "ClapTrap " << Name << " has now " << HitPoints << " Hitpoints" << std::endl;
+		std::cout << Name << " has now " << HitPoints << " Hitpoints" << std::endl;
 		EnergyPoints -= 1;
 	}
 	else
-		std::cout << "ClapTrap " << Name << " does not have enough energy points to repair itself" << std::endl;
+		std::cout << Name << " does not have enough energy points to repair itself" << std::endl;
 	
 }

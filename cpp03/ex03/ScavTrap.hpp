@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 13:33:13 by svan-ass          #+#    #+#             */
-/*   Updated: 2022/12/13 14:24:31 by svan-ass         ###   ########.fr       */
+/*   Created: 2022/12/06 15:18:48 by svan-ass          #+#    #+#             */
+/*   Updated: 2022/12/14 14:55:23 by svan-ass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-int	main(void){
-	ClapTrap Clap("Carnvine");
-	ClapTrap Mochi("Mochi");
-
-	Clap.setAttackDamage(4);
-	Clap.attack(Mochi.getName());
-	Mochi.takeDamage(4);
-	Mochi.beRepaired(4);
-	Mochi.setAttackDamage(10);
-	Mochi.attack(Clap.getName());
-	Clap.takeDamage(10);
-	Clap.attack("Mochi");
-	Clap.beRepaired(10);
-	return (0);
-}
+class ScavTrap : virtual public ClapTrap{
+private:
+public:
+	ScavTrap();
+	ScavTrap(std::string newName);
+	~ScavTrap();
+	ScavTrap(const ScavTrap &other);
+	ScavTrap& operator= (const ScavTrap &other);
+	void	quardGate();
+	void	attack(const std::string& target);
+};
