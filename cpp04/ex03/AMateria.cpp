@@ -5,21 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/16 17:25:39 by svan-ass          #+#    #+#             */
-/*   Updated: 2022/12/16 17:26:29 by svan-ass         ###   ########.fr       */
+/*   Created: 2022/12/18 16:34:33 by svan-ass          #+#    #+#             */
+/*   Updated: 2022/12/19 11:45:51 by svan-ass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
 AMateria::AMateria(){
-	
+	type = "unknown";
+	std::cout << "Defualt AMateria constructor called" << std::endl;
 }
 
-AMateria::AMateria(std::string const &type){
-	type;
+AMateria::AMateria(std::string const &ntype){
+	type = ntype;
+	std::cout << "AMateria constructor called" << std::endl;
 }
 
 AMateria::~AMateria(){
-	
+	std::cout << "AMateria destroyed" << std::endl;
+}
+
+AMateria::AMateria(const AMateria &other){
+	*this = other;
+	std::cout << "AMateria copied" << std::endl;
+}
+
+AMateria& AMateria::operator=(const AMateria &other){
+	type = other.type;
+	return(*this);
+	std::cout << "AMateria copied using an assignment" << std::endl;
+}
+
+void	AMateria::use(ICharacter& target){
+	std::cout << target.getName() << std::endl;
 }

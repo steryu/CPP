@@ -6,7 +6,7 @@
 #    By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 11:37:05 by svan-ass          #+#    #+#              #
-#    Updated: 2022/12/16 16:36:33 by svan-ass         ###   ########.fr        #
+#    Updated: 2022/12/19 11:39:32 by svan-ass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = Materia
 CC			= c++
 CPPFLAGS	= -Wall -Werror -Wextra -std=c++98 -Wshadow -Wno-shadow
 
-SRCS =	main.cpp AMateria.cpp Character.cpp MateriaSource.cpp
+SRCS =	main.cpp AMateria.cpp Ice.cpp Cure.cpp MateriaSource.cpp Character.cpp
 
 OBJS =	$(SRCS:%.cpp=%.o)
 

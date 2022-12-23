@@ -3,7 +3,7 @@ uppercase=$(printf '%s' "$1" | tr a-z A-Z)
 
 CLASSNAME=${1?Error: no class name given}
 
-echo $CLASSNAME;
+echo $CLASSNAME "files made";
 
 hpp=$CLASSNAME.hpp
 cpp=$CLASSNAME.cpp
@@ -12,6 +12,7 @@ cpp=$CLASSNAME.cpp
 echo "#ifndef __${uppercase}_HPP__" > $hpp
 echo "#define __${uppercase}_HPP__" >> $hpp
 echo "#include <iostream>" >> $hpp
+echo "" >> $hpp
 echo "class ${CLASSNAME}{" >> $hpp
 
 echo "protected:" >> $hpp
@@ -31,7 +32,7 @@ echo "#endif" >> $hpp
 echo '#include "'${CLASSNAME}.hpp'"' > $cpp
 echo "" >> $cpp
 echo "${CLASSNAME}::${CLASSNAME}(){" >> $cpp
-echo '	std::cout << "'${CLASSNAME}' constructor called" << std::endl;' >> $cpp
+echo '	std::cout << " Default '${CLASSNAME}' constructor called" << std::endl;' >> $cpp
 echo "}" >> $cpp
 echo "" >> $cpp
 
