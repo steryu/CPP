@@ -6,7 +6,7 @@
 /*   By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 16:34:47 by svan-ass          #+#    #+#             */
-/*   Updated: 2022/12/19 11:26:10 by svan-ass         ###   ########.fr       */
+/*   Updated: 2023/01/10 13:25:38 by svan-ass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 MateriaSource::MateriaSource(){
 	for (int i = 0; i < 4; i++){
-		Materia[i] = "unknown";
+		Materia[i] = "s";
 	}
 	std::cout << "MateriaSource constructor called" << std::endl;
 }
@@ -32,6 +32,7 @@ MateriaSource::MateriaSource(const MateriaSource &other){
 // 	return(*this);
 // 	std::cout << "MateriaSource copied using an assignment" << std::endl;
 // }
+
 
 AMateria* MateriaSource::createMateria(std::string const & type){
 	return (new AMateria(type));

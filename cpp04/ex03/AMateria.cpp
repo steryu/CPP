@@ -6,7 +6,7 @@
 /*   By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 16:34:33 by svan-ass          #+#    #+#             */
-/*   Updated: 2022/12/19 11:45:51 by svan-ass         ###   ########.fr       */
+/*   Updated: 2022/12/23 13:30:55 by svan-ass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ AMateria& AMateria::operator=(const AMateria &other){
 	std::cout << "AMateria copied using an assignment" << std::endl;
 }
 
-void	AMateria::use(ICharacter& target){
-	std::cout << target.getName() << std::endl;
-}
+// void	AMateria::use(ICharacter& target){
+// 	std::cout << target.getName() << std::endl;
+// }

@@ -6,7 +6,7 @@
 /*   By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 16:34:36 by svan-ass          #+#    #+#             */
-/*   Updated: 2022/12/20 11:25:35 by svan-ass         ###   ########.fr       */
+/*   Updated: 2022/12/23 13:30:47 by svan-ass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 
 	// std::string const & getType() const;
 	// virtual AMateria* clone() const;
-	virtual void	use(ICharacter& target);
+	// virtual void	use(ICharacter& target);
 };
 
 #endif
