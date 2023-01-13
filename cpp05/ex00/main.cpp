@@ -5,36 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 10:46:37 by svan-ass          #+#    #+#             */
-/*   Updated: 2023/01/13 15:10:21 by svan-ass         ###   ########.fr       */
+/*   Created: 2023/01/11 12:33:58 by svan-ass          #+#    #+#             */
+/*   Updated: 2023/01/11 15:36:27 by svan-ass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cat.hpp"
-#include "dog.hpp"
-#include "wrongCat.hpp"
+#include "Bureaucrat.hpp"
 
 int	main(void){
-	const Dog* temp = new Dog();
-	const Dog* doggy = new Dog();
-	std::cout << std::endl;
-	std::cout << std::endl;
-	const Animal* meta = new Cat();
-	doggy->makeSound();
-	meta->makeSound();
-
-	std::cout << std::endl;
-	Cat* kitty = new Cat();
-	Dog* lab = new Dog();
-	kitty->setIdea(0, "tuna melt");
-	lab->setIdea(0, "foood");
-	std::cout << kitty->getIdea(0) << std::endl;
-	std::cout << lab->getIdea(0) << std::endl;
+	Bureaucrat cat(10);
 	std::cout << std::endl;
 
-	delete kitty;
-	delete lab;
-	delete doggy;
-	delete temp;
-	return (0);
+	std::cout << cat << std::endl;
+	try
+	{
+		cat.IncrementGrade(4);
+		cat.DecrementGrade(200);
+	}
+	catch (std::exception & e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	std::cout << "[WHEN GRADE = 0]" << std::endl;
+	try 
+	{
+		Bureaucrat yo;
+	}
+	catch (std::exception & e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 }

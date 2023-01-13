@@ -6,7 +6,7 @@
 /*   By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:29:51 by svan-ass          #+#    #+#             */
-/*   Updated: 2022/12/21 12:05:32 by svan-ass         ###   ########.fr       */
+/*   Updated: 2023/01/13 15:09:44 by svan-ass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ Dog::~Dog(){
 Dog::Dog(const Dog &other){
 	type = other.type;
 	brain = new Brain();
-	brain = other.brain;
+	*brain = *other.brain;
 	std::cout << "A copy of a dog is made" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog &other){
-	brain = new Brain();
 	this->type = other.type;
-	brain = other.brain;
+	brain = new Brain();
+	*brain = *other.brain;
 	std::cout << "A copy of a dog using an assignment has been made" << std::endl;
 	return (*this);
 }

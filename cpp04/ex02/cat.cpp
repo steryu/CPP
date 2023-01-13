@@ -6,7 +6,7 @@
 /*   By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:28:19 by svan-ass          #+#    #+#             */
-/*   Updated: 2022/12/16 12:49:05 by svan-ass         ###   ########.fr       */
+/*   Updated: 2023/01/13 15:10:09 by svan-ass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ Cat::~Cat(){
 Cat::Cat(const Cat &other){
 	type = other.type;
 	brain = new Brain();
-	brain = other.brain;
+	*brain = *other.brain;
 	*this = other;
 }
 
 Cat& Cat::operator=(const Cat &other){
 	this->type = other.type;
 	brain = new Brain();
-	brain = other.brain;
+	*brain = *other.brain;
 	return (*this);
 }
 
