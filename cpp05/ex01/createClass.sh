@@ -32,7 +32,7 @@ echo "#endif" >> $hpp
 echo '#include "'${CLASSNAME}.hpp'"' > $cpp
 echo "" >> $cpp
 echo "${CLASSNAME}::${CLASSNAME}(){" >> $cpp
-echo '	std::cout << " Default '${CLASSNAME}' constructor called" << std::endl;' >> $cpp
+echo '	std::cout << "Default '${CLASSNAME}' constructor called" << std::endl;' >> $cpp
 echo "}" >> $cpp
 echo "" >> $cpp
 

@@ -69,6 +69,23 @@ void	Bureaucrat::DecrementGrade(int nb){
 		throw (GradeTooLowException());
 }
 
+void	Bureaucrat::signForm(Form &f){
+	if (f.getisSinged() == true){
+		std::cout << "form is already signed" << std::endl;
+		return ;
+	}
+	try
+	{
+		f.beSigned(*this);
+		std::cout << name << " signed " << f.getName() << std::endl;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << name << " couldn't sign " << f.getName() << " because "\
+		<< e.what() << std::endl;
+	}
+}
+
 std::ostream& operator<<(std::ostream& out, Bureaucrat& b){
 	out << b.getName() << ", bureaucrat grade " << b.getGrade();
 	return (out);

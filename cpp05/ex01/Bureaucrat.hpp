@@ -1,8 +1,11 @@
 #ifndef __BUREAUCRAT_HPP__
 #define __BUREAUCRAT_HPP__
+#include "Form.hpp"
 #include <iostream>
 #include <exception>
 #include <string>
+
+class Form;
 
 class Bureaucrat{
 protected:
@@ -26,6 +29,7 @@ public:
 	class	GradeTooLowException : public std::exception{
 		const char* what() const throw();
 	};
+	void	signForm(Form &f);
 };
 
 std::ostream& operator<<(std::ostream& out, Bureaucrat& f);
