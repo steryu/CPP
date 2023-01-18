@@ -6,13 +6,13 @@
 class PresidentialPardonForm : public AForm{
 protected:
 private:
-	std::string target;
 public:
 	PresidentialPardonForm();
 	PresidentialPardonForm(std::string target);
 	virtual ~PresidentialPardonForm();
 	PresidentialPardonForm(const PresidentialPardonForm &other);
 	PresidentialPardonForm& operator=(const PresidentialPardonForm &other);
+	void	execute(Bureaucrat const & executor) const;
 };
 
 #endif

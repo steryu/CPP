@@ -1,7 +1,7 @@
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() 
-	: name("Haseeb"){
+	: name("bureaucrat"){
 	grade = 0;
 	if (grade < 1){
 		throw (GradeTooHighException());
@@ -13,7 +13,7 @@ Bureaucrat::Bureaucrat()
 }
 
 Bureaucrat::Bureaucrat(int nb)
-	: name("Haseeb"){
+	: name("bureaucrat"){
 	grade = nb;
 	if (grade < 1){
 		throw (GradeTooHighException());
@@ -82,6 +82,20 @@ void	Bureaucrat::signForm(AForm &f){
 	catch (std::exception & e)
 	{
 		std::cout << name << " couldn't sign " << f.getName() << " because "\
+		<< e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(AForm const & form){
+	try
+	{
+		form.execute(*this);
+		std::cout << name << " executed " << form.getName() << std::endl;
+		
+	}
+	catch (std::exception & e)
+	{
+		std::cout << name << " couldn't execute " << form.getName() << " because "\
 		<< e.what() << std::endl;
 	}
 }

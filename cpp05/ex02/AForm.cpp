@@ -1,13 +1,13 @@
 #include "AForm.hpp"
 
 AForm::AForm() 
-	: name("AForm 1"), GradeSign(5), GradeExecute(10){
+	: name("AForm 1"), GradeSign(5), GradeExecute(10), target("Default"){
 	isSigned = false;
 	std::cout << "Default AForm constructor called" << std::endl;
 }
 
-AForm::AForm(const std::string newName, const int newGradeSign, const int newGradeExecute)
-	: name(newName), GradeSign(newGradeSign), GradeExecute(newGradeExecute){
+AForm::AForm(const std::string newName, const int newGradeSign, const int newGradeExecute, std::string newTarget)
+	: name(newName), GradeSign(newGradeSign), GradeExecute(newGradeExecute), target(newTarget){
 		isSigned = false;
 	if (newGradeSign < 1)
 		throw(GradeTooHighException());
@@ -26,7 +26,7 @@ AForm::~AForm(){
 
 AForm::AForm(const AForm &other) 
 	: name(other.name), isSigned(other.isSigned),
-	GradeSign(other.GradeSign), GradeExecute(other.GradeExecute){
+	GradeSign(other.GradeSign), GradeExecute(other.GradeExecute), target(other.target){
 	std::cout << "AForm copied" << std::endl;
 }
 
@@ -44,12 +44,16 @@ int	AForm::getGradeExecute() const{
 	return (GradeExecute);
 }
 
-std::string AForm::getName(){
+std::string AForm::getName() const{
 	return (name);
 }
 
 bool	AForm::getisSinged(){
 	return (isSigned);
+}
+
+std::string AForm::getTarget() const{
+	return (target);
 }
 
 void	AForm::beSigned(Bureaucrat &b){
@@ -80,7 +84,7 @@ const char*	AForm::FormNotSigned::what() const throw(){
 
 std::ostream& operator<<(std::ostream& out, AForm& f){
 	out << f.getName() << " requires Grade " << f.getGradeSigned() << " to sign and Grade "\
-	<< f.getGradeSigned() << " to execute it, the Aform is ";
+	<< f.getGradeExecute() << " to execute it, the Aform is ";
 	if (f.getisSinged() == false)
 		out << "not signed";
 	if (f.getisSinged() == true)

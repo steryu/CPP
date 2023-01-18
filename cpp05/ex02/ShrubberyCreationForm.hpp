@@ -2,11 +2,11 @@
 #define __SHRUBBERYCREATIONFORM_HPP__
 #include "AForm.hpp"
 #include <iostream>
+#include <fstream>
 
 class ShrubberyCreationForm : public AForm{
 protected:
 private:
-	std::string target;
 public:
 	ShrubberyCreationForm();
 	ShrubberyCreationForm(std::string newTarget);

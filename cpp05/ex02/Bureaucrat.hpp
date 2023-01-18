@@ -30,6 +30,7 @@ public:
 		const char* what() const throw();
 	};
 	void	signForm(AForm &f);
+	void	executeForm(AForm const & form);
 };
 
 std::ostream& operator<<(std::ostream& out, Bureaucrat& f);
