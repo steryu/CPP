@@ -27,6 +27,7 @@ public:
 	std::string getName() const;
 	bool	getisSinged();
 	std::string getTarget() const;
+	void	setTarget(std::string newTarget);
 	void	beSigned(Bureaucrat &b);
 	class GradeTooLowException : public std::exception{
 		const char* what() const throw();

@@ -6,7 +6,7 @@
 /*   By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 12:33:58 by svan-ass          #+#    #+#             */
-/*   Updated: 2023/01/18 14:19:39 by svan-ass         ###   ########.fr       */
+/*   Updated: 2023/01/18 15:20:47 by svan-ass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	main(void){
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout << std::endl;
-	std::cout << "[EXECUTING FORM1]" << std::endl;
+	std::cout << "[EXECUTING FORM 1]" << std::endl;
 	std::cout << bc << std::endl;
 	try
 	{
@@ -66,7 +66,7 @@ int	main(void){
 		std::cerr << e.what() << std::endl;
 	}
 	std::cout << std::endl;
-	std::cout << "[EXECUTING FORM2]" << std::endl;
+	std::cout << "[EXECUTING FORM 2]" << std::endl;
 	try
 	{
 		bc.signForm(form2);

@@ -21,7 +21,7 @@ AForm::AForm(const std::string newName, const int newGradeSign, const int newGra
 }
 
 AForm::~AForm(){
-	std::cout << "AForm destroyed" << std::endl;
+	// std::cout << "AForm destroyed" << std::endl;
 }
 
 AForm::AForm(const AForm &other) 
@@ -54,6 +54,10 @@ bool	AForm::getisSinged(){
 
 std::string AForm::getTarget() const{
 	return (target);
+}
+
+void	AForm::setTarget(std::string newTarget){
+	target = newTarget;
 }
 
 void	AForm::beSigned(Bureaucrat &b){

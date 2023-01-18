@@ -11,7 +11,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string newTarget)
 }
 
 RobotomyRequestForm::~RobotomyRequestForm(){
-	std::cout << "RobotomyRequestForm destroyed" << std::endl;
+	// std::cout << "RobotomyRequestForm destroyed" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
