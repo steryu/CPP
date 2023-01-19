@@ -43,14 +43,17 @@ void	convert::setD(double newD){
 }
 
 int	convert::checkC(std::string input){
-	if (!isdigit(input[0])){
-		if (isalpha(input[0]) && input.length() == 1){
-				setC(input[0]);
-				type = 1;
-				zero = true;
+	if (input[0] != '-'){
+		if (!isdigit(input[0])){
+			if (isalpha(input[0]) && input.length() == 1){
+					setC(input[0]);
+					std::cout << "CHAR" << std::endl;
+					type = 1;
+					zero = true;
+			}
+			else
+				return (EXIT_FAILURE);
 		}
-		else
-			return (EXIT_FAILURE);
 	}
 	return (0);
 }
@@ -69,18 +72,20 @@ int	convert::checkF(std::string input){
 		if ((isalpha(input[i]) && input[i] != 'f') || (count > 1))
 			return (EXIT_FAILURE);
 	}
-	if (input[len] == 'f')
-	{
-		float f = std::stof(input);
-		// if (f > FLT_MAX || f < -FLT_MIN){
-		// 	std::cout << "overflow" << std::endl;
-		// 	return (EXIT_FAILURE);
-		// }
-		type = 3;
-		setF(f);
+	try{
+		if (input[len] == 'f')
+		{
+			float f = std::stof(input);
+			type = 3;
+			setF(f);
+			std::cout << "FLOAT" << std::endl;
+		}
+		else
+			checkD(input);
 	}
-	else
-		checkD(input);
+	catch(const std::exception& e){
+		return (EXIT_FAILURE);
+	}
 	for (int i = pos + 1; input[i] != '\0'; i++){
 		if (input[i] != '0' && input[i] != 'f' && input[i] != '-'){
 			zero = false;
@@ -96,12 +101,15 @@ int	convert::checkD(std::string input){
 		if (isalpha(input[i]))
 			return (EXIT_FAILURE);
 	}
-	double d = std::stod(input);
-	if (d > DBL_MAX || d < -DBL_MIN){
+	try{
+		double d = std::stod(input);
+		type = 4;
+		setD(d);
+		std::cout << "DOUBLE" << std::endl;
+	}
+	catch(const std::exception& e){
 		return (EXIT_FAILURE);
 	}
-	type = 4;
-	setD(d);
 	return (0);
 }
 
@@ -112,40 +120,44 @@ int	convert::checkI(std::string input){
 		if (isalpha(input[i]))
 			return (EXIT_FAILURE);
 	}
-	long int i = std::stol(input);
-	if (i == LONG_MAX || i > INT_MAX || i < INT_MIN){
-			std::cout << "overflow" << std::endl;
-			return (EXIT_FAILURE);
+	try {
+		int i = std::stoi(input);
+		type = 2;
+		setI(i);
+		std::cout << "INT" << std::endl;
 	}
-	type = 2;
-	setI(i);
+	catch(const std::exception& e){
+		return (EXIT_FAILURE);
+	}
 	zero = true;
 	return (0);
 }
 
 void	convert::convertC(){
-		i = static_cast<int>(c);
-		f = static_cast<float>(c);
-		d = static_cast<double>(c);
+	i = static_cast<int>(c);
+	f = static_cast<float>(c);
+	d = static_cast<double>(c);
 }	
 
 void	convert::convertI(){
-		if (i > 0 && i < 216)
-			c = static_cast<char>(i);
-		f = static_cast<float>(i);
-		d = static_cast<double>(i);
+	if (i > 0 && i < 255)
+		c = static_cast<char>(i);
+	f = static_cast<float>(i);
+	d = static_cast<double>(i);
 }
 
 void	convert::convertF(){
+	if (f > 0 && f < 255)
 		c = static_cast<char>(f);
-		i = static_cast<int>(f);
-		d = static_cast<double>(f);
+	i = static_cast<int>(f);
+	d = static_cast<double>(f);
 }
 
 void	convert::convertD(){
+	if (d > 0 && d < 255)
 		c = static_cast<char>(d);
-		i = static_cast<int>(d);
-		f = static_cast<float>(d);
+	i = static_cast<int>(d);
+	f = static_cast<float>(d);
 }
 
 void	convert::doConvert(){
@@ -166,16 +178,21 @@ int	convert::conversion(std::string input){
 		return (EXIT_FAILURE);
 	}
 	doConvert();
-	displayResults();
+	displayResults(input);
 	return (0);
 }
 
-void convert::displayResults(){
+void convert::displayResults(std::string input){
 	if (c < 33 || c > 126)
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: " << c << std::endl;
-	std::cout << "int: " << i << std::endl;
+	if ((input[0] == '-') && (i > INT_MAX || i < INT_MIN))
+		std::cout << "int: impossible" << std::endl;
+	else if ((input[0] != '-') && (i > INT_MAX || i <= INT_MIN))
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << i << std::endl;
 	if (zero == true){
 		std::cout << "float: " << f << ".0f" << std::endl;
 		std::cout << "double: " << d << ".0" << std::endl;

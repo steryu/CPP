@@ -35,7 +35,7 @@ public:
 	void	convertF();
 	void	convertD();
 
-	void displayResults();
+	void displayResults(std::string input);
 };
 
 
