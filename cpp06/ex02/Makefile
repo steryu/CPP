@@ -6,16 +6,16 @@
 #    By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 11:37:05 by svan-ass          #+#    #+#              #
-#    Updated: 2023/01/19 15:32:25 by svan-ass         ###   ########.fr        #
+#    Updated: 2023/01/19 15:51:26 by svan-ass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = serialization
+NAME = identify
 
 CC			= c++
 CPPFLAGS	= -Wall -Werror -Wextra -std=c++98 -Wshadow -Wno-shadow
 
-SRCS =	main.cpp
+SRCS =	main.cpp Base.cpp A.cpp B.cpp C.cpp
 
 OBJS =	$(SRCS:%.cpp=%.o)
 
