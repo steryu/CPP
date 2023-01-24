@@ -66,6 +66,7 @@
 		"stack": "cpp",
 		"blubble.h": "c",
 		"__functional_03": "cpp",
-		"climits": "cpp"
+		"climits": "cpp",
+		"*.tpp": "cpp"
 	}
 }

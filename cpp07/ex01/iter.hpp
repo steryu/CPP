@@ -3,18 +3,20 @@
 #include <iostream>
 
 template <typename T>
-void f(T t)
+int f(T t)
 {
-	std::cout << t << std::endl;
+	t = 69;
+	return (t);
 }
 
 template <typename T> 
-void iter(T arr[], T len, T f)
+void iter(T arr[], size_t len, int(*f)(T&))
 {
-	std::cout << "address of the array: " << arr << std::endl;
+	std::cout << "address of the array: " << &arr << std::endl;
 	std::cout << "length of the array: " << len << std::endl;
-	for (int i = 0; i < len; i++){
-		f(arr[i]);
+	for (size_t i = 0; i < len; i++){
+		arr[i] = f(arr[i]);
+		std::cout << arr[i] << std::endl;
 	}
 }
 

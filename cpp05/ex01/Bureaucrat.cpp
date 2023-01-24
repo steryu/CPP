@@ -1,7 +1,7 @@
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() 
-	: name("Haseeb"){
+	: name("Bureaucrat"){
 	grade = 0;
 	if (grade < 1){
 		throw (GradeTooHighException());
@@ -13,7 +13,7 @@ Bureaucrat::Bureaucrat()
 }
 
 Bureaucrat::Bureaucrat(int nb)
-	: name("Haseeb"){
+	: name("Bureaucrat"){
 	grade = nb;
 	if (grade < 1){
 		throw (GradeTooHighException());
