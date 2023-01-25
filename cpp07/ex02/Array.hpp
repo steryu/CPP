@@ -1,38 +1,52 @@
 #ifndef __ARRAY_HPP__
 #define __ARRAY_HPP__
 #include <iostream>
+#include <cstring>
 
 template <class T>
 class	Array{
 private:
-	T	arr[];
-	T	size;
+	unsigned int	Asize;
+	T				*arr;
 public:
 	Array(){
-		arr[4];
+		Asize = 0;
+		arr = new T[0];
 		std::cout << "Default Array constructor called" << std::endl;
 	}
 	Array(unsigned int n){
-		arr[n];
+		Asize = n;
+		arr = new T[Asize];
+		for (unsigned int i = 0; i < Asize; i++){
+			arr[i] = i;
+		}
 		std::cout << "Array made" << std::endl;
 	}
 	~Array(){
-		std::cout << "\nArray destroyed" << std::endl;
+		// if (arr)
+		// 	delete(arr);
+		std::cout << "Array destroyed" << std::endl;
 	}
 	Array(const Array &other){
-		*this = other;
+		for (unsigned int i = 0; i < Asize; i++){
+			(*this)->arr[i] = other.arr[i];
+		}
 		std::cout << "Array copied" << std::endl;
 	}
 	Array& operator=(const Array &other){
-		arr = other.arr;
+		for (unsigned int i = 0; i < Asize; i++){
+			(*this).arr[i] = other.arr[i];
+		}
 		return(*this);
 		std::cout << "Array copied using an assignment" << std::endl;
 	}
-	class outOfBounds : public std::exception{
-		const char* what() const throw();
-	};
-	int	size(){
-		return (0);
+	unsigned int size(){
+		return (Asize);
+	}
+	T &operator[](unsigned int i){
+		if (i > Asize)
+			throw(std::out_of_range("Index is out of bounds!"));
+		return (arr[i]);
 	}
 };
 
