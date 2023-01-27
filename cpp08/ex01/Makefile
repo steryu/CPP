@@ -10,12 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = find
+NAME = span
 
 CC			= c++
-CPPFLAGS	= -Wall -Werror -Wextra -std=gnu++11 -Wshadow -Wno-shadow
+CPPFLAGS	= -Wall -Werror -Wextra -std=c++98 -Wshadow -Wno-shadow
 
-SRCS =	main.cpp
+SRCS =	main.cpp Span.cpp
 
 OBJS =	$(SRCS:%.cpp=%.o)
 
