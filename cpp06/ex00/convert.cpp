@@ -6,7 +6,7 @@
 /*   By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:48:33 by svan-ass          #+#    #+#             */
-/*   Updated: 2023/01/19 14:48:34 by svan-ass         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:37:19 by svan-ass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ void	convert::setD(double newD){
 }
 
 int	convert::checkC(std::string input){
-	if (input[0] != '-'){
+	if (input.length() == 1){
 		if (!isdigit(input[0])){
-			if (isalpha(input[0]) && input.length() == 1){
+			if (isprint(input[0]) && input.length() == 1){
 					setC(input[0]);
 					std::cout << "CHAR" << std::endl;
 					type = 1;
@@ -75,8 +75,9 @@ int	convert::checkF(std::string input){
 	if (type == 1)
 		return (0);
 	size_t pos = input.find('.');
-	if (pos == std::string::npos)
-		return (0);
+	size_t found = input.find('.', (pos + 1));
+	if (found != std::string::npos)
+		return (EXIT_FAILURE);
 	int len = input.length() - 1;
 	for (int i = 0; input[i] != '\0'; i++){
 		if (input[i] == 'f')
@@ -92,17 +93,19 @@ int	convert::checkF(std::string input){
 			setF(f);
 			std::cout << "FLOAT" << std::endl;
 		}
-		else
-			checkD(input);
+		else if (pos != std::string::npos)	
+			checkD(input);	
 	}
 	catch(const std::exception& e){
 		return (EXIT_FAILURE);
 	}
-	for (int i = pos + 1; input[i] != '\0'; i++){
-		if (input[i] != '0' && input[i] != 'f' && input[i] != '-'){
-			zero = false;
-			return (0);
-		}
+	if (pos != std::string::npos){
+		for (int i = pos + 1; input[i] != '\0'; i++){
+			if (input[i] != '0' && input[i] != 'f' && input[i] != '-'){
+				zero = false;
+				return (0);
+			}
+	}
 	}
 	zero = true;
 	return (0);

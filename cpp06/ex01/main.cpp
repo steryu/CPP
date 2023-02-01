@@ -6,15 +6,14 @@
 /*   By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:48:23 by svan-ass          #+#    #+#             */
-/*   Updated: 2023/01/19 15:45:47 by svan-ass         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:41:48 by svan-ass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-class	Data{
+class Data{
 public:
-	int 		integer;
 	std::string	str;
 };
 
@@ -30,13 +29,15 @@ Data*	deserialize(uintptr_t raw){
 
 int	main(void)
 {
-	Data data;
-	data.integer = 1;
-	data.str = "hoi";
+	Data *data = new Data;
+	data->str = "hoi";
 
-	unsigned int i = serialize(&data);
+	uintptr_t i = serialize(data);
 	Data *ptr = deserialize(i);
 
-	std::cout << "original pointer: " << &data << std::endl;
-	std::cout << "return value:     " << &ptr << std::endl;
+	std::cout << "original pointer: " << data << std::endl;
+	std::cout << "return value:     " << ptr << std::endl;
+	std::cout << "original pointer: " << data->str << std::endl;
+	delete data;
+	return (0);
 }
