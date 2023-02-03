@@ -6,16 +6,16 @@
 #    By: svan-ass <svan-ass@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 11:37:05 by svan-ass          #+#    #+#              #
-#    Updated: 2023/01/24 11:10:18 by svan-ass         ###   ########.fr        #
+#    Updated: 2023/02/03 14:03:06 by svan-ass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = span
+NAME = MutantStack
 
 CC			= c++
 CPPFLAGS	= -Wall -Werror -Wextra -std=c++98 -Wshadow -Wno-shadow
 
-SRCS =	main.cpp Span.cpp
+SRCS =	main.cpp
 
 OBJS =	$(SRCS:%.cpp=%.o)
 

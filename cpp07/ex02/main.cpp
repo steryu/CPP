@@ -5,8 +5,7 @@ int	main(void)
 	Array<int> a;
 	Array<int> a2(5);
 
-	std::cout << a[0] << std::endl;
-	std::cout << a2[2] << std::endl;
+	std::cout << a2[4] << std::endl;
 	std::cout << "size is " << a2.size() << std::endl;
 	try
 	{

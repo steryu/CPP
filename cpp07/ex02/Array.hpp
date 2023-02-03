@@ -23,8 +23,8 @@ public:
 		std::cout << "Array made" << std::endl;
 	}
 	~Array(){
-		// if (arr)
-		// 	delete(arr);
+	if (arr)
+			delete(arr);	
 		std::cout << "Array destroyed" << std::endl;
 	}
 	Array(const Array &other){
@@ -44,7 +44,7 @@ public:
 		return (Asize);
 	}
 	T &operator[](unsigned int i){
-		if (i > Asize)
+		if (i >= Asize)
 			throw(std::out_of_range("Index is out of bounds!"));
 		return (arr[i]);
 	}
