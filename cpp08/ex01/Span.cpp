@@ -46,18 +46,17 @@ void	Span::addAllNumbers(int N){
 int	Span::shortestSpan(){
 	if (v1.size() < 2)
 		throw(std::out_of_range("not enough number to find the span"));
-	int low = *std::max_element(v1.begin(), v1.end());
+	std::sort(v1.begin(), v1.end());
 	int range;
-	for (unsigned int i = 0; i != size; i++)
+	int low = *std::max_element(v1.begin(), v1.end());
+	int nb = v1.at(0);
+	for (std::vector<int>::iterator it = v1.begin() ; it != v1.end();)
 	{
-		int nb = v1.at(i);
-		for (std::vector<int>::iterator it = v1.begin() ; it != v1.end(); ++it)
-		{
-			if (nb > *it)
-				range = (nb - *it);
-			if (range < low)
-				low = range;
-		}
+		++it;
+		range = (*it - nb);
+		if (range < low && range >= 0)
+			low = range;
+		nb = *it;
 	}
 	return (low);
 }

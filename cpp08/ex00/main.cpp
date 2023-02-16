@@ -2,7 +2,7 @@
 
 int main(void)
 {
-    std::array<int, 4> ar{12, 24, 9, 16};
+    std::array<int, 4> ar = {12, 24, 9, 16};
     try
     {
         easyfind(ar, 24);

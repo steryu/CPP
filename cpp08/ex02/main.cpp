@@ -11,7 +11,7 @@ int	main(void)
 
 	mstack.pop();
 
-	std::cout << mstack.size() << std::endl;
+	std::cout << "size: " << mstack.size() << std::endl;
 
 	mstack.push(3);
 	mstack.push(5);
@@ -19,19 +19,19 @@ int	main(void)
 	//[...]
 	mstack.push(19);
 
-	std::cout << "size " << mstack.size() << std::endl;
+	std::cout << "size: " << mstack.size() << std::endl;
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
 
-	std::cout << "begin: " << *it << '\n';
-	std::cout << "end: " << *ite << '\n';
-
-	std::cout << mstack.size() << std::endl;
+	std::cout << "\n" << "[begin iterator]" << '\n';
+	++it;
+	--it;
 	while (it != ite)
 	{
-		std::cout << "iterator: " << *it << std::endl;
+		std::cout << *it << std::endl;
 		++it;
 	}
-	// std::stack<int> s(mstack);
+	std::cout << "[end]" << std::endl;
+	std::cout << *it << std::endl;
 	return (0);
 }
