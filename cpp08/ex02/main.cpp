@@ -23,14 +23,12 @@ int	main(void)
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
 
-	std::cout << "begin: " << it << '\n';
-	std::cout << "end: " << ite << '\n';
+	std::cout << "begin: " << *it << '\n';
+	std::cout << "end: " << *ite << '\n';
 
 	std::cout << mstack.size() << std::endl;
 	while (it != ite)
 	{
-		std::cout << mstack.top() << '\n';
-		mstack.pop();
 		std::cout << "iterator: " << *it << std::endl;
 		++it;
 	}

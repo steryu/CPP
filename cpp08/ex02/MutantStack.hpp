@@ -6,7 +6,6 @@
 template <class T>
 class MutantStack : public std::stack<T>{
 public:
-	typedef T* iterator;
 	MutantStack(){};
 	virtual ~MutantStack(){};
 	MutantStack(const MutantStack &other){
@@ -16,27 +15,14 @@ public:
 		(void) other;
 		return (*this);
 	};
+
+	typedef typename std::stack<T>::container_type::iterator iterator;
+
 	iterator begin(){
-		// int _top = &this->top();
-		return (&this->top());
+		return (this->c.begin());
 	};
 	iterator end(){
-		iterator _end;
-		MutantStack _stack;
-		for (long unsigned int i = 0; i <= MutantStack::size(); i++){
-			_stack.push(MutantStack::top());
-			MutantStack::pop();
-		}
-		_stack.push(MutantStack::top());
-		MutantStack::pop();
-		_end = &this->top();
-		for (long unsigned int i = 0; i <= _stack.size(); i++){
-			MutantStack::push(_stack.top());
-			_stack.pop();
-		}
-		MutantStack::push(_stack.top());
-		_stack.pop();
-		return (_end);
+		return (this->c.end());
 	};
 };
 
