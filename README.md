@@ -6,12 +6,12 @@ They are in total nine CPP modules, each of which was crafted to learn specific 
 | Module | This module is designed to help you understand | Score |
 | ------:|------------:|------:|
 |0|The specifities of the language when compared to C|[![svan-ass's 42 CPP Module 00 Score](https://badge42.vercel.app/api/v2/clfladlx3000608l58byc7e5w/project/2661678)](https://github.com/JaeSeoKim/badge42)|
-|1|The memory allocation, reference, pointers to members and the usage of the switch|
-|2|Ad-hoc polymorphism, overloads and orthodox canonical classes|
-|3|Inheritance|
-|4|Subtype polymorphism, abstract classes and interfaces|
-|5|Try/Catch and Exceptions|
-|6|The different casts|
-|7|Templates|
-|8|Templated containers, iterators and algorithms|
-|9|The containers| Yet to be made|
+|1|The memory allocation, reference, pointers to members and the usage of the switch| [![svan-ass's 42 CPP Module 01 Score](https://badge42.vercel.app/api/v2/clfladlx3000608l58byc7e5w/project/2860273)](https://github.com/JaeSeoKim/badge42)|
+|2|Ad-hoc polymorphism, overloads and orthodox canonical classes|[![svan-ass's 42 CPP Module 02 Score](https://badge42.vercel.app/api/v2/clfladlx3000608l58byc7e5w/project/2883440)](https://github.com/JaeSeoKim/badge42)|
+|3|Inheritance|[![svan-ass's 42 CPP Module 03 Score](https://badge42.vercel.app/api/v2/clfladlx3000608l58byc7e5w/project/2904115)](https://github.com/JaeSeoKim/badge42)|
+|4|Subtype polymorphism, abstract classes and interfaces|[![svan-ass's 42 CPP Module 04 Score](https://badge42.vercel.app/api/v2/clfladlx3000608l58byc7e5w/project/2914531)](https://github.com/JaeSeoKim/badge42)|
+|5|Try/Catch and Exceptions|[![svan-ass's 42 CPP Module 05 Score](https://badge42.vercel.app/api/v2/clfladlx3000608l58byc7e5w/project/2944167)](https://github.com/JaeSeoKim/badge42)|
+|6|The different casts|[![svan-ass's 42 CPP Module 06 Score](https://badge42.vercel.app/api/v2/clfladlx3000608l58byc7e5w/project/2956856)](https://github.com/JaeSeoKim/badge42)|
+|7|Templates|[![svan-ass's 42 CPP Module 07 Score](https://badge42.vercel.app/api/v2/clfladlx3000608l58byc7e5w/project/2961843)](https://github.com/JaeSeoKim/badge42)|
+|8|Templated containers, iterators and algorithms|[![svan-ass's 42 CPP Module 08 Score](https://badge42.vercel.app/api/v2/clfladlx3000608l58byc7e5w/project/2963842)](https://github.com/JaeSeoKim/badge42)|
+|9|The containers|N/A|
