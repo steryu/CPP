@@ -3,6 +3,8 @@
 This was our first step into C++. using my knowledge of C, I could easily transition into the new progamming language.
 They are in total nine CPP modules, each of which was crafted to learn specific subjects.
 
+I made and used a very simple [`bash script`](https://github.com/steryu/CreateClass-script) to create the classes.
+
 | Module | This module is designed to help you understand | Score |
 | ------:|------------:|------:|
 |[0](https://github.com/steryu/CPP/tree/main/cpp00)|The specifities of the language when compared to C|[![svan-ass's 42 CPP Module 00 Score](https://badge42.vercel.app/api/v2/clfladlx3000608l58byc7e5w/project/2661678)](https://github.com/JaeSeoKim/badge42)|
