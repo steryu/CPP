@@ -23,6 +23,7 @@ public:
 	class	invalidMap : public std::exception{
 		const char* what() const throw();
 	};
+	int	checkDate(int year, int month, int day);
 };
 
 int	exitError(std::string str);
