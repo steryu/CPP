@@ -15,8 +15,7 @@ public:
 	RPN& operator=(const RPN &other);
 	void	readInput(std::string input);
 	int		isToken(char c);
-	void	operation(char token);
+	int	operation(char token);
 };
-int	exitError(std::string str);
 
 #endif

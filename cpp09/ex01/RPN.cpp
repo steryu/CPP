@@ -31,10 +31,18 @@ int	RPN::isToken(char c){
 	return (0);
 }
 
-void	RPN::operation(char token){
+int	RPN::operation(char token){
 	int res;
+	if (stack.empty()){
+		std::cout << "Error" << std::endl;
+		return(1);
+	}
 	int a = stack.top();
 	stack.pop();
+	if (stack.empty()){
+		std::cout << "Error" << std::endl;
+		return(1);
+	}
 	int b = stack.top();
 	stack.pop();
 	if (isToken(token) == '+')
@@ -46,6 +54,7 @@ void	RPN::operation(char token){
 	if (isToken(token) == '*')
 		res = b * a;
 	stack.push(res);
+	return (0);
 }
 
 void	RPN::readInput(std::string input){
@@ -54,12 +63,19 @@ void	RPN::readInput(std::string input){
 	while (i < input[i]){
 		if (!(isdigit(input[i])) && (!isToken(input[i])) && input[i] != ' '){
 			std::cout << "Error" << std::endl;
-			exit(1);
+			return ;
+		}
+		if ((i != 0 && (long unsigned int)i != (input.length() - 1)) && (isdigit(input[i]) || isToken(input[i]))){
+			if ((isdigit(input[i]) || isToken(input[i])) && (input[i - 1] != ' ' || input[i + 1] != ' ')){
+				std::cout << "Error" << std::endl;
+				return ;
+			}
 		}
 		if (isdigit(input[i]))
 			stack.push(input[i] - 48);
 		if (isToken(input[i]))
-			operation(input[i]);
+			if (operation(input[i]) == 1)
+				return ;
 		i++;
 	}
 	std::cout << stack.top() << std::endl;
