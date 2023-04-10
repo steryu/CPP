@@ -3,6 +3,8 @@
 #include <iostream>
 #include <vector>
 #include <iterator>
+#include <ctime>
+#include <iomanip>
 
 class PmergeMe{
 protected:
@@ -13,12 +15,13 @@ public:
 	virtual ~PmergeMe();
 	PmergeMe(const PmergeMe &other);
 	// PmergeMe& operator=(const PmergeMe &other);
-	void	checkInput(std::string);
+	// void	checkInput(std::string);
 	void	initSequence(std::string input);
-	void	sort(std::vector<int> vec, int pos, int len);
 	void	start();
-	void	merge(std::vector<int> vec, int pos, int split, int len);
-	void	insertSort(std::vector<int> vec, int pos, int len);
+	void	writeResultVec(clock_t time);
+	void	mergeSortVec(int k);
+	void	mergeInsertionSort(std::vector<int>& vec, int left, int right, int k);
+	void	merge(std::vector<int>& vec, int left, int mid, int right);
 };
 
 #endif
