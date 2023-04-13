@@ -21,8 +21,14 @@ PmergeMe::PmergeMe(const PmergeMe &other){
 void	PmergeMe::initSequence(std::string input){
 	int i = stoi(input);
 	vec.push_back(i);
+	lst.push_front(i);
+	// size++;
 }
 
+// Forward_list
+
+
+// Vector
 void PmergeMe::merge(std::vector<int>& vec, int left, int mid, int right){
     int n1 = mid - left + 1;
     int n2 = right - mid;
@@ -36,35 +42,33 @@ void PmergeMe::merge(std::vector<int>& vec, int left, int mid, int right){
 
     int i = 0, j = 0, k = left;
 
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
+    while (i < n1 && j < n2){
+        if (L[i] <= R[j]){
             vec[k] = L[i];
             i++;
         }
-        else {
+        else{
             vec[k] = R[j];
             j++;
         }
         k++;
     }
-    while (i < n1) {
+    while (i < n1){
         vec[k] = L[i];
         i++;
         k++;
     }
-    while (j < n2) {
+    while (j < n2){
         vec[k] = R[j];
         j++;
         k++;
     }
 }
 
-void PmergeMe::mergeInsertionSort(std::vector<int>& vec, int left, int right, int k) {
+void PmergeMe::mergeInsertionSortVec(std::vector<int>& vec, int left, int right, int k) {
 	if (left < right){
-		if (right - left <= k)
-		{
-			for (size_t i = 1; i < vec.size(); i++)
-			{
+		if (right - left <= k){
+			for (size_t i = 1; i < vec.size(); i++){
 				int key = vec[i];
 				int j = i - 1;
 				while (j >= 0 && vec[j] > key){
@@ -74,34 +78,31 @@ void PmergeMe::mergeInsertionSort(std::vector<int>& vec, int left, int right, in
 				vec[j + 1] = key;
 			}
 		}
-	}
-	else{
-		int mid = left + (right - left) / 2;
-        mergeInsertionSort(vec, left, mid, k);
-        mergeInsertionSort(vec, mid + 1, right, k);
-        merge(vec, left, mid, right);
+		else{
+			int mid = left + (right - left) / 2;
+			mergeInsertionSortVec(vec, left, mid, k);
+			mergeInsertionSortVec(vec, mid + 1, right, k);
+			merge(vec, left, mid, right);
+		}
 	}
 }
 
-void	PmergeMe::mergeSortVec(int k){
-	int n = vec.size();
-	mergeInsertionSort(vec, 0, n - 1, k);
-}
-
-void	PmergeMe::writeResultVec(clock_t time){
+void	PmergeMe::writeResult(clock_t timeVec, clock_t timeLst){
 	std::vector<int>::iterator it = vec.begin();
 	std::cout << "After: ";
 	while (it != vec.end()){
 		std::cout << *it << " ";
 		it++;
 	}
-	time = (clock() - time);
-	std::cout << std::endl << "Time to process a range of " << vec.size() << "elements with std::vector : " << std::fixed << std::setprecision(sizeof(time)) << (float)time/CLOCKS_PER_SEC << " us";
-	std::cout << std::endl << "Time to process a range of " << vec.size() << "elements with std::array : ";
+	timeVec = (clock() - timeVec);
+	timeLst = (clock() - timeLst);
+	std::cout << std::endl << "Time to process a range of " << vec.size() << " elements with std::vector : " << std::fixed << (float)timeVec/CLOCKS_PER_SEC << " us";
+	std::cout << std::endl << "Time to process a range of " << "10" << " elements with std::forward_list : " << std::fixed << (float)timeLst/CLOCKS_PER_SEC << " us";
 }
 
 void	PmergeMe::start(){
 	int k = 5;
+	lst.reverse();
 	std::vector<int>::iterator it = vec.begin();
 	std::cout << "Before: ";
 	while (it != vec.end()){
@@ -109,8 +110,10 @@ void	PmergeMe::start(){
 		it++;
 	}
 	std::cout << std::endl;
-	clock_t time = clock();
-	mergeSortVec(k);
-	writeResultVec(time);
+	clock_t timeVec = clock();
+	mergeInsertionSortVec(vec, 0, vec.size() - 1, k);
+	clock_t timeLst = clock();
+	// mergeInsertionSortLst(lst, lst.begin(), lst.end(), k);
+	writeResult(timeVec, timeLst);
 	std::cout << std::endl;
 }
