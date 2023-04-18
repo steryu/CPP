@@ -44,7 +44,7 @@ int	PmergeMe::initSequence(std::string input){
 void	PmergeMe::mergeLst(std::list<int>::iterator left, std::list<int>::iterator mid, std::list<int>::iterator right){
     std::list<int> merged;
     std::list<int>::iterator it1 = left, it2 = mid;
-    while (it1 != mid && it2 != right) {
+    while (it1 != mid && it2 != right){
         if (*it1 <= *it2) {
             merged.push_back(*it1);
             it1++;
@@ -96,42 +96,6 @@ void	PmergeMe::mergeInsertionSortLst(std::list<int>& lst, std::list<int>::iterat
 }
 
 // Vector
-void PmergeMe::merge(std::vector<int>& vec, int left, int mid, int right){
-    int n1 = mid - left + 1;
-    int n2 = right - mid;
-
-    std::vector<int> L(n1), R(n2);
-
-    for (int i = 0; i < n1; i++)
-        L[i] = vec[left + i];
-    for (int j = 0; j < n2; j++)
-        R[j] = vec[mid + 1 + j];
-
-    int i = 0, j = 0, k = left;
-
-    while (i < n1 && j < n2){
-        if (L[i] <= R[j]){
-            vec[k] = L[i];
-            i++;
-        }
-        else{
-            vec[k] = R[j];
-            j++;
-        }
-        k++;
-    }
-    while (i < n1){
-        vec[k] = L[i];
-        i++;
-        k++;
-    }
-    while (j < n2){
-        vec[k] = R[j];
-        j++;
-        k++;
-    }
-}
-
 void PmergeMe::mergeInsertionSortVec(std::vector<int>& vec, int left, int right, int k) {
 	if (left < right){
 		if (right - left <= k){
@@ -162,7 +126,7 @@ void	PmergeMe::writeResult(clock_t timeVec, clock_t timeLst){
 		it++;
 	}
 	std::cout << std::endl << "Time to process a range of " << vec.size() << " elements with std::vector : " << std::fixed << (float)timeVec/CLOCKS_PER_SEC << " us";
-	std::cout << std::endl << "Time to process a range of " << "10" << " elements with std::list : " << std::fixed << (float)timeLst/CLOCKS_PER_SEC << " us";
+	std::cout << std::endl << "Time to process a range of " << lst.size() << " elements with std::list : " << std::fixed << (float)timeLst/CLOCKS_PER_SEC << " us";
 }
 
 void	PmergeMe::start(){
@@ -180,7 +144,7 @@ void	PmergeMe::start(){
 	timeVec = clock() - timeVec;
 	clock_t timeLst = clock();
 	mergeInsertionSortLst(lst, lst.begin(), lst.end(), k);
-	timeLst = (clock() - timeLst);
+	timeLst = clock() - timeLst;
 	writeResult(timeVec, timeLst);
 	std::cout << std::endl;
 }
