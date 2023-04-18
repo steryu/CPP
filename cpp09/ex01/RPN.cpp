@@ -59,8 +59,13 @@ int	RPN::operation(char token){
 
 void	RPN::readInput(std::string input){
 	int i = 0;
-	// checkInput(input);
+	int digit = 0;
+	int token = 0;
 	while (i < input[i]){
+		if ((i == 0 && isdigit(input[i]) && isdigit(input[i + 1]))){
+			std::cout << "Error" << std::endl;
+			return ;
+		}
 		if (!(isdigit(input[i])) && (!isToken(input[i])) && input[i] != ' '){
 			std::cout << "Error" << std::endl;
 			return ;
@@ -71,12 +76,20 @@ void	RPN::readInput(std::string input){
 				return ;
 			}
 		}
-		if (isdigit(input[i]))
+		if (isdigit(input[i])){
+			digit++;
 			stack.push(input[i] - 48);
-		if (isToken(input[i]))
+		}
+		if (isToken(input[i])){
+			token++;
 			if (operation(input[i]) == 1)
 				return ;
+		}
 		i++;
+	}
+	if ((digit - 1) != token){
+		std::cout << "Error" << std::endl;
+		return ;
 	}
 	std::cout << stack.top() << std::endl;
 }

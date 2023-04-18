@@ -70,6 +70,8 @@
 		"*.tpp": "cpp",
 		"map": "cpp",
 		"__tree": "cpp",
-		"filesystem": "cpp"
+		"filesystem": "cpp",
+		"forward_list": "cpp",
+		"list": "cpp"
 	}
 }
