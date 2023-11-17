@@ -1,6 +1,8 @@
 # CPP
 
 This was our first step into C++. using my knowledge of C, I could easily transition into the new progamming language.
+The goal of these modules is to introduce you to Object-Oriented Programming.
+
 They are in total nine CPP modules, each of which was crafted to learn specific subjects.
 
 I made and used a very simple [`bash script`](https://github.com/steryu/CreateClass-script) to create the classes.
